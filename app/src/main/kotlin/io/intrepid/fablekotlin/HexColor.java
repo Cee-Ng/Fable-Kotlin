@@ -12,7 +12,7 @@ public enum HexColor {
     PINK("#ff5b82");
 
     private String hexColor;
-    
+
     HexColor(String hexColor) {
         this.hexColor = hexColor;
     }
