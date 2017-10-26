@@ -14,4 +14,14 @@ class HomescreenActivity : BaseMvpActivity<HomescreenContract.Presenter>(), Home
     override fun createPresenter(configuration: PresenterConfiguration): HomescreenContract.Presenter =
             HomescreenPresenter(this, configuration)
 
+    @OnClick(R.id.go_to_new_fable_btn)
+    internal fun onFabClick() {
+        presenter.onFabClick()
+    }
+
+    override fun gotoCreateFable() {
+        val intent = Intent(this, CreateFableActivity::class.java)
+        startActivity(intent)
+    }
+
 }
