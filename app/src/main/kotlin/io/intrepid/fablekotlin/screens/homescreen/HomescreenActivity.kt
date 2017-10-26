@@ -11,8 +11,7 @@ class HomescreenActivity : BaseMvpActivity<HomescreenContract.Presenter>(), Home
 
     override val layoutResourceId: Int = R.layout.activity_homescreen
 
-    override fun createPresenter(configuration: PresenterConfiguration): HomescreenContract.Presenter {
-        return HomescreenPresenter(this, configuration)
-    }
+    override fun createPresenter(configuration: PresenterConfiguration): HomescreenContract.Presenter =
+            HomescreenPresenter(this, configuration)
 
 }
