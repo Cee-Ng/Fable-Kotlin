@@ -1,8 +1,11 @@
 package io.intrepid.fablekotlin.screens.homescreen
 
+import android.content.Intent
+import butterknife.OnClick
 import io.intrepid.fablekotlin.R
 import io.intrepid.fablekotlin.base.BaseMvpActivity
 import io.intrepid.fablekotlin.base.PresenterConfiguration
+import io.intrepid.fablekotlin.screens.createfable.CreateFableActivity
 
 class HomescreenActivity : BaseMvpActivity<HomescreenContract.Presenter>(), HomescreenContract.View {
 

@@ -1,16 +1,13 @@
-package io.intrepid.fablekotlin.screens.homescreen
+package io.intrepid.fablekotlin.screens.createfable
 
 import io.intrepid.fablekotlin.base.BaseContract
 
-interface HomescreenContract {
+interface CreateFableContract {
     interface View : BaseContract.View {
 
-        fun gotoCreateFable()
     }
 
     interface Presenter : BaseContract.Presenter {
 
-        fun onFabClick()
     }
-
 }
