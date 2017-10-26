@@ -1,0 +1,89 @@
+<resources>
+    <string name="common_ok">OK</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_remove">Remove</string>
+
+    <string name="app_name">Fable</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="placeholder_for_home_screen">Placeholder activity for home screen\nThe login screen
+    should appear first if the user is not logged in, otherwise this screen appears first.</string>
+    <string name="go_to_login_screen">Go to login screen</string>
+    <string name="go_to_new_fable_screen">Go to new fable screen</string>
+    <string name="go_to_home_screen">Go to home screen</string>
+    <string name="placeholder_for_login_screen">Placeholder activity for login screen</string>
+    <string name="fable_title">Title</string>
+    <string name="createFable">Create Fable</string>
+    <string name="submit">submit</string>
+    <string name="fable">FABLE</string>
+    <string name="facebook_app_id">785728614929436</string>
+    <string name="fb_login_protocol_scheme">fb785728614929436</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="write_your_title_here">Write your title here</string>
+    <string name="failedToast">An error occurred</string>
+    <string name="invite_more_friends">Invite at least two friends to join you!</string>
+    <string name="fable_color_picker">Color</string>
+    <string name="dark_teal_description">Color selection for Dark Teal</string>
+    <string name="navy_description">Color selection for Navy</string>
+    <string name="maroon_description">Color selection for maroon</string>
+    <string name="lavender_description">Color selection for lavender</string>
+    <string name="forrest_green_description">Color selection for forrest green</string>
+    <string name="mustard_description">Color selection for mustard</string>
+    <string name="light_teal_description">Color selection for light Teal</string>
+    <string name="orange_description">Color selection for orange</string>
+    <string name="pink_description">Color selection for pink</string>
+    <string name="continue_button">Continue</string>
+    <string name="no_title_warning">Don\'t forget the title!</string>
+    <string name="long_title_warning">Title is too long!</string>
+    <string name="created_fable">Created fable %s</string>
+    <string name="invite_friends_instructions">To get started, invite at least two friends to join you.</string>
+    <string name="select_friends_page_placeholder">Select friends page placeholder</string>
+    <string name="invite_friends">Invite friends</string>
+    <string name="name_placeholder">Firstname Lastname</string>
+    <string name="toast_error_msg">An error occurred</string>
+    <string name="toast_error_msg_home_screen">Error loading fables. Check your network connection!</string>
+    <string name="active">ACTIVE</string>
+    <string name="completed">COMPLETED</string>
+    <string name="sample_fable_title">This is the Story of a Girl</string>
+    <string name="sentence_hint">Write the next line in 50–200 characters</string>
+    <string name="no_friends">You have no friends who use Fable! :(</string>
+    <string name="char_count_200">0/200</string>
+    <string name="error_create_fable">An error occured while creating the fable</string>
+    <string name="active_games_header">ACTIVE GAMES</string>
+    <string name="their_turn_text">It\'s %s\'s turn</string>
+    <string name="your_turn_text">It\'s your turn</string>
+    <string name="game">GAME</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="your_turn">Your Turn</string>
+    <string name="their_turn">Their Turn</string>
+    <string name="pending">Pending</string>
+    <string name="no_fables">You currently have no Fables.  Let\'s get started.</string>
+    <string name="invite_text">%s invited you</string>
+    <string name="decline_invitation_check">Decline Invitation?</string>
+    <string name="decline_warning">you will no longer be able to join this Fable</string>
+    <string name="cancel">Cancel</string>
+    <string name="accepted_invited_message">Awesome! We\'ll let you know when it\'s your turn.</string>
+    <string name="this_is_a_cover_photo_for_an_active_story">This is a cover photo for an active story</string>
+    <string name="this_is_a_cover_photo_for_a_pending_story">This is a cover photo for a pending story</string>
+    <string name="this_is_a_user_image">This is a user image</string>
+    <string name="round">Round:</string>
+    <string name="error_game_screen">Error loading this fable. Check your network connection!</string>
+    <string name="invalid_length_add_sentence">Be sure to write 50-200 characters before posting.</string>
+    <string name="not_your_turn">You can access this fable when it\'s your turn.</string>
+    <string name="success_post_added">Awesome! Your post has been added.</string>
+    <string name="no_completed_fables">You have no completed fables.</string>
+    <string name="past_games">Past Games</string>
+    <string name="error_on_completed_game_screen">Error loading this fable. Check your network connection!</string>
+    <string name="fablers">Fablers</string>
+    <string name="this_is_a_coverphoto_illustration">This is a coverphoto illustration</string>
+    <string name="this_is_the_color_of_the_cover_photo">This is the color of the cover Photo</string>
+    <string name="created_fable_notification">Created fable %s!</string>
+    <string name="completed_the_fable">You completed the fable!</string>
+
+
+</resources>

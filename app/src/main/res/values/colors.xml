@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00d6ff</color>
+    <color name="colorPrimaryDark">#008f94</color>
+    <color name="colorAccent">#979797</color>
+    <color name="white">#FFFFFF</color>
+    <color name="fadedWhite">#b2ffffff</color>
+    <color name="actionBarText">#FFFFFF</color>
+
+    <color name="navy">#182641</color>
+    <color name="forestGreen">#00796C</color>
+    <color name="lavender">#9292af</color>
+    <color name="darkTeal">#0D97AF</color>
+    <color name="maroon">#6c0048</color>
+    <color name="mustard">#FFB717</color>
+    <color name="orange">#F66517</color>
+    <color name="pink">#ff5b82</color>
+    <color name="black">#000</color>
+
+    <color name="lightBackground">#FBF8F1</color>
+    <color name="facebookButtonBackground">#162642</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="titleLetterF">#182641</color>
+    <color name="titleLetterA">#FF6782</color>
+    <color name="titleLetterB">#FFB717</color>
+    <color name="titleLetterL">#00796C</color>
+    <color name="titleLetterE">#6C0048</color>
+
+    <color name="background">#fbf8f1</color>
+    <color name="backgroundDarker">#f8f5ee</color>
+    <color name="backgroundLighter">#fafafa</color>
+    <color name="defaultTextColor">#3e3e3e</color>
+    <color name="bottomBar">#f0eadb</color>
+
+    <color name="circleDarkBlue">#00dcff</color>
+    <color name="circleLightBlue">#a0f5f4</color>
+
+    <color name="lightGrey">#C0C0C0</color>
+    <color name ="greyBackground">#EBE9E6</color>
+
+    <color name="offWhite">#f1f1f1</color>
+
+    <color name="lineSeparatorGrey">#eaeaea</color>
+
+    <color name="gameScreenTextColor">#4a4a4a</color>
+
+    <color name="blueCursorColor">#00d9ff</color>
+
+</resources>
