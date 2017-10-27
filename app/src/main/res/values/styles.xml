@@ -9,4 +9,115 @@
         <item name="android:textColor">@color/defaultTextColor</item>
         <item name="android:colorBackground">@color/background</item>
     </style>
+
+
+    <style name="colorButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="colorButtonSpacing">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="FacebookLoginButton">
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="create_fable_header_style">
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:textSize">@dimen/titles</item>
+    </style>
+
+    <style name="textAppearance.FontPath" parent="android:TextAppearance">
+        <item name="fontPath">fonts/Avenir-Roman.ttf"</item>
+    </style>
+
+    <style name="weightSetup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="friendCircleDark">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/circle_dark</item>
+    </style>
+
+    <style name="friendCircleLight">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/circle_light</item>
+    </style>
+
+    <style name="friendX">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:background">@drawable/circle_dark</item>
+    </style>
+
+    <style name="homescreen_list_style">
+        <item name="android:background">@color/background</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingBottom">@dimen/active_stories_height_padding</item>
+        <item name="android:paddingLeft">@dimen/active_stories_side_padding</item>
+        <item name="android:paddingRight">@dimen/active_stories_side_padding</item>
+    </style>
+
+    <style name="homescreen_game_titles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/homescreen_headers</item>
+    </style>
+
+    <style name="cover_photo_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="accept_decline_button_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="game_view_profile_style">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">@drawable/circle_dark</item>
+    </style>
+
+    <style name="completed_game_spacing">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="endgame_circle_border">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="endgame_circle_profile">
+        <item name="android:layout_width">41dp</item>
+        <item name="android:layout_height">41dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/circle_dark</item>
+    </style>
+
+
+
 </resources>
