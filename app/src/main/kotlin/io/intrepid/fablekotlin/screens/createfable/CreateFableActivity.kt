@@ -46,19 +46,19 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
 
     @OnClick(R.id.navy, R.id.forrestGreen, R.id.lavender, R.id.darkTeal, R.id.maroon, R.id.mustard, R.id.orange, R.id.pink)
     internal fun onClick(color: ImageButton) {
-        val clickedColor = color.getTag() as HexColor
+        val clickedColor = color.tag as HexColor
         pickedColor.setImageResource(R.drawable.ic_cover_photo)
-        pickedColor.setColorFilter(Color.parseColor(clickedColor.getHexColor()))
+        pickedColor.setColorFilter(Color.parseColor(clickedColor.hexColor))
     }
 
     private fun setColorTags() {
-        forrestGreen.setTag(HexColor.GREEN)
-        navy.setTag(HexColor.NAVY)
-        lavender.setTag(HexColor.LAVENDER)
-        lightTeal.setTag(HexColor.DARKTEAL)
-        maroon.setTag(HexColor.MAROON)
-        mustard.setTag(HexColor.MUSTARD)
-        orange.setTag(HexColor.ORANGE)
-        pink.setTag(HexColor.PINK)
+        forrestGreen.tag = HexColor.GREEN
+        navy.tag = HexColor.NAVY
+        lavender.tag = HexColor.LAVENDER
+        lightTeal.tag = HexColor.DARKTEAL
+        maroon.tag = HexColor.MAROON
+        mustard.tag = HexColor.MUSTARD
+        orange.tag = HexColor.ORANGE
+        pink.tag = HexColor.PINK
     }
 }
