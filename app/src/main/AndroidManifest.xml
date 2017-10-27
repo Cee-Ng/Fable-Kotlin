@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="io.intrepid.fablekotlin.screens.example2.Example2Activity"/>
+        <activity android:name="io.intrepid.fablekotlin.screens.createfable.CreateFableActivity"/>
     </application>
 
 </manifest>

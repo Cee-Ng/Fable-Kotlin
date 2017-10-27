@@ -6,5 +6,9 @@ import io.intrepid.fablekotlin.base.PresenterConfiguration
 class HomescreenPresenter(view: HomescreenContract.View, configuration: PresenterConfiguration)
     : BasePresenter<HomescreenContract.View>(view, configuration), HomescreenContract.Presenter {
 
+    override fun onFabClick() {
+        view?.gotoCreateFable()
+    }
+
 
 }

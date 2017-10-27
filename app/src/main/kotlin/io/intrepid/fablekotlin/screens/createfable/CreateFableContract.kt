@@ -1,15 +1,13 @@
-package io.intrepid.fablekotlin.screens.example1
+package io.intrepid.fablekotlin.screens.createfable
 
 import io.intrepid.fablekotlin.base.BaseContract
 
-interface Example1Contract {
+interface CreateFableContract {
     interface View : BaseContract.View {
 
-        fun gotoExample2()
     }
 
     interface Presenter : BaseContract.Presenter {
 
-        fun onButtonClick()
     }
 }

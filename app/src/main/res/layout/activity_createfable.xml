@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/newFableLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/pickedColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_cover_photo"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/illustrationPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/pickedColor"
+            android:layout_alignTop="@+id/pickedColor"
+            />
+        <!--
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/illustrationCircleIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/pickedColor"
+                    />-->
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            style="@style/create_fable_header_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="@dimen/create_fable_header_spacing"
+            android:paddingTop="@dimen/create_fable_header_spacing"
+            android:text="@string/fable_color_picker"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/weightSetup"
+        android:layout_weight=".11"
+        android:orientation="vertical"
+        android:paddingLeft="10.6dp"
+        android:paddingRight="10.6dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/darkTeal"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/darkTeal"
+                    android:contentDescription="@string/dark_teal_description"
+                    android:src="@color/darkTeal"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/mustard"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/mustard"
+                    android:contentDescription="@string/mustard_description"
+                    android:src="@color/mustard"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/orange"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/orange"
+                    android:contentDescription="@string/orange_description"
+                    android:src="@color/orange"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/pink"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/pink"
+                    android:contentDescription="@string/pink_description"
+                    android:src="@color/pink"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/forrestGreen"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/forestGreen"
+                    android:contentDescription="@string/forrest_green_description"
+                    android:src="@color/forestGreen"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/lavender"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/lavender"
+                    android:contentDescription="@string/lavender_description"
+                    android:src="@color/lavender"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/maroon"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/maroon"
+                    android:contentDescription="@string/maroon_description"
+                    android:src="@color/maroon"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/colorButtonSpacing">
+
+                <ImageButton
+                    android:id="@+id/navy"
+                    style="@style/colorButtonStyle"
+                    android:background="@color/navy"
+                    android:contentDescription="@string/navy_description"
+                    android:src="@color/navy"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/weightSetup"
+        android:layout_weight="0.36"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            style="@style/create_fable_header_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/create_fable_header_spacing"
+            android:text="@string/fable_title"
+
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/characterCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/create_fable_padding"
+            android:paddingRight="@dimen/create_fable_padding"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:hintEnabled="false"
+            >
+
+            <EditText
+                android:id="@+id/enteredFableTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/write_your_title_here"
+                android:inputType="text|textCapSentences"
+                android:maxLength="50"
+                android:textSize="@dimen/enterTitle"
+                android:longClickable="false"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            style="@style/create_fable_header_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fablers"
+            android:textSize="@dimen/titles"
+            />
+
+        <TextView
+            android:id="@+id/inviteMinimim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:paddingLeft="@dimen/create_fable_padding"
+            android:paddingTop="4dp"
+            android:text="@string/invite_friends_instructions"
+            android:textAppearance="@style/textAppearance.FontPath"
+            android:textSize="14sp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <!--TODO: Make the circular buttons more interactive w/ material design (ripple)-->
+
+            <ImageButton
+                android:id="@+id/circle_button1"
+                style="@style/friendCircleDark"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/plus"
+                />
+
+            <ImageButton
+                android:id="@+id/circle_button2"
+                style="@style/friendCircleDark"
+                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:src="@drawable/plus"
+                />
+
+            <ImageButton
+                android:id="@+id/circle_button3"
+                style="@style/friendCircleDark"
+                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:src="@drawable/plus"
+                />
+
+            <ImageButton
+                android:id="@+id/circle_button4"
+                style="@style/friendCircleLight"
+                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:src="@drawable/plus"
+                />
+
+            <ImageButton
+                android:id="@+id/circle_button5"
+                style="@style/friendCircleLight"
+                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:src="@drawable/plus"
+                />
+
+            <ImageButton
+                android:id="@+id/circle_button6"
+                style="@style/friendCircleLight"
+                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:src="@drawable/plus"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
