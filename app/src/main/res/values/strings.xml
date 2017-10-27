@@ -84,6 +84,8 @@
     <string name="this_is_the_color_of_the_cover_photo">This is the color of the cover Photo</string>
     <string name="created_fable_notification">Created fable %s!</string>
     <string name="completed_the_fable">You completed the fable!</string>
+    <string name="create_fable_select_friend_descriptor">Click to add friends</string>
+    <string name="the_selected_color_and_illustraition">The Selected Color and Illustraition</string>
 
 
 </resources>
