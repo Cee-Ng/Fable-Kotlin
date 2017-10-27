@@ -19,6 +19,7 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_cover_photo"
+            android:contentDescription="@string/the_selected_color_and_illustraition"
             />
 
         <android.support.v4.view.ViewPager
@@ -28,13 +29,13 @@
             android:layout_alignBottom="@+id/pickedColor"
             android:layout_alignTop="@+id/pickedColor"
             />
-        <!--
+
                 <me.relex.circleindicator.CircleIndicator
                     android:id="@+id/illustrationCircleIcon"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_alignBottom="@+id/pickedColor"
-                    />-->
+                    />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -257,43 +258,49 @@
             <ImageButton
                 android:id="@+id/circle_button1"
                 style="@style/friendCircleDark"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:src="@drawable/plus"
+                android:contentDescription="@string/create_fable_select_friend_descriptor"
                 />
 
             <ImageButton
                 android:id="@+id/circle_button2"
                 style="@style/friendCircleDark"
-                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:layout_marginStart="@dimen/new_fable_circle_spacing"
                 android:src="@drawable/plus"
+                android:contentDescription="@string/create_fable_select_friend_descriptor"
                 />
 
             <ImageButton
                 android:id="@+id/circle_button3"
                 style="@style/friendCircleDark"
-                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:layout_marginStart="@dimen/new_fable_circle_spacing"
                 android:src="@drawable/plus"
+                android:contentDescription="@string/create_fable_select_friend_descriptor"
                 />
 
             <ImageButton
                 android:id="@+id/circle_button4"
                 style="@style/friendCircleLight"
-                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:layout_marginStart="@dimen/new_fable_circle_spacing"
                 android:src="@drawable/plus"
+                android:contentDescription="@string/create_fable_select_friend_descriptor"
                 />
 
             <ImageButton
                 android:id="@+id/circle_button5"
                 style="@style/friendCircleLight"
-                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:layout_marginStart="@dimen/new_fable_circle_spacing"
                 android:src="@drawable/plus"
+                android:contentDescription="@string/create_fable_select_friend_descriptor"
                 />
 
             <ImageButton
                 android:id="@+id/circle_button6"
                 style="@style/friendCircleLight"
-                android:layout_marginLeft="@dimen/new_fable_circle_spacing"
+                android:layout_marginStart="@dimen/new_fable_circle_spacing"
                 android:src="@drawable/plus"
+                android:contentDescription="@string/create_fable_select_friend_descriptor"
                 />
 
         </LinearLayout>

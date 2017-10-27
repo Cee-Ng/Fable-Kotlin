@@ -95,6 +95,8 @@ dependencies {
         transitive = true;
     }
 
+    compile 'me.relex:circleindicator:1.2.2@aar'
+
     // Support libraries
     def supportVersion = "26.1.0";
     compile "com.android.support:support-v4:$supportVersion"
