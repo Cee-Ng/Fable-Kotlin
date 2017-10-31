@@ -39,12 +39,8 @@ class LoginActivity : BaseMvpActivity<LoginContract.Presenter>(), LoginContract.
         setupFacebookLoginButton()
     }
 
-    override val layoutResourceId: Int =R.layout.activity_login
-
-    /*
-        We are not logged in so prepare the FB button. This opens a login screen on either the FB app or a
-         browser, handled by the SDK. If first time, we request FB privileges for this user.
-     */
+    override val layoutResourceId: Int = R.layout.activity_login
+    
     private fun setupFacebookLoginButton() {
         callbackManager = CallbackManager.Factory.create()
         loginButton.setReadPermissions(Arrays.asList("email", "user_about_me", "user_friends"))
@@ -62,7 +58,11 @@ class LoginActivity : BaseMvpActivity<LoginContract.Presenter>(), LoginContract.
 
     private fun styleTitleText() {
         val titleColorSpan = SpannableStringBuilder("FABLE")
-        val titleColors = intArrayOf(ContextCompat.getColor(this, R.color.titleLetterF), ContextCompat.getColor(this, R.color.titleLetterA), ContextCompat.getColor(this, R.color.titleLetterB), ContextCompat.getColor(this, R.color.titleLetterL), ContextCompat.getColor(this, R.color.titleLetterE))
+        val titleColors = intArrayOf(ContextCompat.getColor(this, R.color.titleLetterF),
+                ContextCompat.getColor(this, R.color.titleLetterA),
+                ContextCompat.getColor(this, R.color.titleLetterB),
+                ContextCompat.getColor(this, R.color.titleLetterL),
+                ContextCompat.getColor(this, R.color.titleLetterE))
         for (letter in 0..4) {
             titleColorSpan.setSpan(ForegroundColorSpan(titleColors[letter]),
                     letter,
