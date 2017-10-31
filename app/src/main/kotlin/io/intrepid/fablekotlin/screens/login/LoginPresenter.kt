@@ -20,7 +20,7 @@ class LoginPresenter(view: LoginContract.View, configuration: PresenterConfigura
                         userSettings.userImage = (logInUserResponse.authentication.user!!.image!!)
                         userSettings.userName = (logInUserResponse.authentication.user!!.name!!)
                         view?.redirectToHomeScreen()
-                }, { error(view?.showErrorMessage()!!) })
+                }, { handleError -> view?.showErrorMessage()})
         disposables.add(disposable)
     }
 
