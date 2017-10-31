@@ -4,7 +4,15 @@ import io.intrepid.fablekotlin.base.BaseContract
 
 interface LoginContract {
 
-    interface View : BaseContract.View
+    interface View : BaseContract.View {
+        fun showErrorMessage()
 
-    interface Presenter : BaseContract.Presenter
+        fun redirectToHomeScreen()
+    }
+
+    interface Presenter : BaseContract.Presenter {
+
+        fun getAndStoreUserToken(tempToken: String)
+
+    }
 }

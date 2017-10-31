@@ -6,7 +6,7 @@ class LogInUserResponse {
     @SerializedName("authentication")
     lateinit var authentication: Authentication
 
-    fun LogInUserResponse(authToken: String, id: String, image: String, name: String): ??? {
+    fun LogInUserResponse(authToken: String, id: String, image: String, name: String) {
         this.authentication = Authentication()
         this.authentication.user = User()
         this.authentication.authToken = authToken
