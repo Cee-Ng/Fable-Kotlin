@@ -24,6 +24,4 @@ class LoginPresenter(view: LoginContract.View, configuration: PresenterConfigura
         disposables.add(disposable)
     }
 
-
-
 }

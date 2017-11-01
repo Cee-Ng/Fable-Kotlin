@@ -22,7 +22,6 @@ import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.screens.homescreen.HomescreenActivity
 import java.util.*
 
-
 class LoginActivity : BaseMvpActivity<LoginContract.Presenter>(), LoginContract.View {
 
     @BindView(R.id.title_text)
@@ -40,7 +39,7 @@ class LoginActivity : BaseMvpActivity<LoginContract.Presenter>(), LoginContract.
     }
 
     override val layoutResourceId: Int = R.layout.activity_login
-    
+
     private fun setupFacebookLoginButton() {
         callbackManager = CallbackManager.Factory.create()
         loginButton.setReadPermissions(Arrays.asList("email", "user_about_me", "user_friends"))
