@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="false"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="intrepid.io.fable.FirstSentenceActivity"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/first_sentence_color"
+                    style="@style/cover_photo_style"
+                    android:contentDescription="@string/this_is_the_color_of_the_cover_photo"
+                    app:srcCompat="@drawable/ic_cover_photo"
+                    />
+
+                <ImageView
+                    android:id="@+id/first_sentence_illustration"
+                    style="@style/cover_photo_style"
+                    android:contentDescription="@string/this_is_a_coverphoto_illustration"
+                    android:src="@drawable/artboard_1"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/first_sentence_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:layout_marginLeft="@dimen/margin_first_sentence_screen"
+                android:layout_marginRight="@dimen/margin_first_sentence_screen"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/sample_fable_title"
+                android:textColor="#4a4a4a"
+                android:textSize="24sp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d8d8d8"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/backgroundDarker"
+                >
+
+                <EditText
+                    android:id="@+id/text_input"
+                    fontPath="fonts/Avenir-Roman.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="@dimen/margin_first_sentence_screen"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#f8f5ee"
+                    android:hint="@string/sentence_hint"
+                    android:inputType="textShortMessage|textMultiLine|textCapSentences"
+                    android:lineSpacingExtra="12sp"
+                    android:maxLength="200"
+                    android:maxLines="5"
+                    android:paddingBottom="62dp"
+                    android:longClickable="false"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="-52dp"
+        android:background="@color/offWhite"
+        >
+
+        <ImageButton
+            android:id="@+id/done_button"
+            android:layout_width="@dimen/forward_arrow_size"
+            android:layout_height="@dimen/forward_arrow_size"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_first_sentence_screen"
+            android:background="@drawable/circle_grey"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/arrow_right"
+            />
+
+        <TextView
+            android:id="@+id/char_count"
+            fontPath="fonts/Avenir-Roman.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:layout_toStartOf="@+id/done_button"
+            android:gravity="right"
+            android:text="@string/char_count_200"
+            android:textAlignment="gravity"
+            android:textColor="@color/lightGrey"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -129,6 +129,8 @@ dependencies {
     compile 'com.jakewharton.timber:timber:4.5.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
 
+    compile 'jp.wasabeef:picasso-transformations:2.1.2'
+
     // Other
     compile "io.intrepid.commonutils:commonutils:0.2.2"
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'

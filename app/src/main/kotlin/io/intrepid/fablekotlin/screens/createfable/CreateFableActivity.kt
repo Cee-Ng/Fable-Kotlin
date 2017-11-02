@@ -1,21 +1,42 @@
 package io.intrepid.fablekotlin.screens.createfable
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.view.ViewPager
+import android.support.v7.widget.Toolbar
+import android.util.TypedValue
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import butterknife.BindView
+import butterknife.BindViews
 import butterknife.OnClick
+import com.squareup.picasso.Picasso
 import io.intrepid.fablekotlin.HexColor
 import io.intrepid.fablekotlin.R
 import io.intrepid.fablekotlin.base.BaseMvpActivity
 import io.intrepid.fablekotlin.base.PresenterConfiguration
+import io.intrepid.fablekotlin.models.GetUserFriendsResponse
+import io.intrepid.fablekotlin.screens.createfable.FirstSentence.FirstSentenceActivity
+import io.intrepid.fablekotlin.screens.homescreen.HomescreenActivity
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import me.relex.circleindicator.CircleIndicator
+import java.io.Serializable
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), CreateFableContract.View {
 
+    @BindView(R.id.toolbar)
+    lateinit var fableToolbar: Toolbar
+    @BindView(R.id.enteredFableTitle)
+    lateinit var enteredFableTitle: EditText
     @BindView(R.id.pickedColor)
     lateinit var pickedColor: ImageView
     @BindView(R.id.navy)
@@ -39,7 +60,22 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
     @BindView(R.id.illustrationCircleIcon)
     lateinit var circleIndicator: CircleIndicator
 
+    @BindViews(R.id.circle_button1,
+               R.id.circle_button2,
+               R.id.circle_button3,
+               R.id.circle_button4,
+               R.id.circle_button5,
+               R.id.circle_button6)
+    internal var circleButtons: List<ImageButton> = ArrayList()
+
     private lateinit var illustrationsList: List<Int>
+
+    internal var selectedFriends: ArrayList<GetUserFriendsResponse.Friend> = ArrayList()
+    val SELECTED_FRIENDS = "selected_friends"
+    val FABLE_TITLE = "fable_title"
+    val COLOR_THEME = "color_theme"
+    val ICON = "icon"
+    val PASS_FABLE_INFO = 1
 
     override val layoutResourceId: Int = R.layout.activity_createfable
 
@@ -58,7 +94,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
                 R.drawable.artboard_8)
 
         setColorTags()
-
+        setupToolbar()
         setUpIllustrationPager()
     }
 
@@ -68,6 +104,85 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         val clickedColor = color.tag as HexColor
         pickedColor.setImageResource(R.drawable.ic_cover_photo)
         pickedColor.setColorFilter(Color.parseColor(clickedColor.hexColor))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.create_fable_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val title = enteredFableTitle.text.toString()
+        val itemClicked = item.itemId
+        when (itemClicked) {
+            R.id.createFable -> {
+                presenter.onContinueClicked(title)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this, HomescreenActivity::class.java))
+        return false
+    }
+
+    override fun showTitleShortMessage() {
+        val snackbar = Snackbar.make(findViewById(R.id.newFableLayout),
+                R.string.no_title_warning,
+                Snackbar.LENGTH_SHORT)
+        setSnackTextColor(snackbar.view)
+        snackbar.show()
+    }
+
+    override fun showTitleLongMessage() {
+        val snackbar = Snackbar.make(findViewById(R.id.newFableLayout),
+                R.string.long_title_warning,
+                Snackbar.LENGTH_LONG)
+        setSnackTextColor(snackbar.view)
+        snackbar.show()
+    }
+
+    override fun showNotEnoughFriendsMessage() {
+        val snackbar = Snackbar.make(findViewById(R.id.newFableLayout),
+                R.string.invite_more_friends,
+                Snackbar.LENGTH_LONG)
+        setSnackTextColor(snackbar.view)
+        snackbar.show()    }
+
+    override fun goToFirstSentenceScreen() {
+        val intent = Intent(this, FirstSentenceActivity::class.java)
+        intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
+        intent.putExtra(COLOR_THEME, presenter.getColorTheme())
+        intent.putExtra(ICON, (pager.currentItem + 1).toString())
+        intent.putExtra(SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
+        startActivity(intent)
+    }
+
+    //Set a circle to a profile image
+    override fun setCircleImage(idx: Int, imageSrc: String?) {
+        if (idx < 0 || idx >= circleButtons.size) {
+            return
+        }
+        val circleButton = circleButtons.get(idx)
+        if (imageSrc == null) {
+            // Reset to empty (plus sign)
+            if (idx < 3) {
+                circleButton.setBackgroundResource(R.drawable.circle_dark)
+            } else {
+                circleButton.setBackgroundResource(R.drawable.circle_light)
+            }
+            circleButton.setImageResource(R.drawable.plus)
+        } else {
+            // Add the profile photo and the material design ripple
+            val typedValue = TypedValue()
+            this.theme.resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, typedValue, true)
+            circleButton.setBackgroundResource(typedValue.resourceId)
+            Picasso.with(this).load(imageSrc).transform(CropCircleTransformation())
+                    .fit()
+                    .into(circleButton)
+        }
     }
 
     private fun setColorTags() {
@@ -81,8 +196,23 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         pink.tag = HexColor.PINK
     }
 
+    private fun setupToolbar() {
+        setSupportActionBar(fableToolbar)
+        if (supportActionBar != null) {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            supportActionBar!!.setHomeAsUpIndicator(R.drawable.close)
+            setTitle(R.string.createFable)
+        }
+    }
+
     private fun setUpIllustrationPager() {
         pager.adapter = IllustrationPagerAdapter(this, illustrationsList)
         circleIndicator.setViewPager(pager)
+    }
+
+    private fun setSnackTextColor(snackbarView: View) {
+        val snackbarTextId = android.support.design.R.id.snackbar_text
+        val textView = snackbarView.findViewById<View>(snackbarTextId) as TextView
+        textView.setTextColor(Color.WHITE)
     }
 }
