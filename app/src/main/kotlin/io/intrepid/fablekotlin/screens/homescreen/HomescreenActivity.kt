@@ -20,7 +20,7 @@ class HomescreenActivity : BaseMvpActivity<HomescreenContract.Presenter>(), Home
     override fun onViewCreated(savedInstanceState: Bundle?) {
         super.onViewCreated(savedInstanceState)
 
-        if ((!getLoggedInStatus()) || SharedPreferencesManager.getInstance(this).token == null) run {
+        if ((!getLoggedInStatus()) ) run {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }

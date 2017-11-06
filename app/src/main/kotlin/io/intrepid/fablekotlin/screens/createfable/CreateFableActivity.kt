@@ -10,10 +10,7 @@ import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import butterknife.BindView
 import butterknife.BindViews
 import butterknife.OnClick
@@ -25,6 +22,9 @@ import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.models.GetUserFriendsResponse
 import io.intrepid.fablekotlin.screens.createfable.FirstSentence.FirstSentenceActivity
 import io.intrepid.fablekotlin.screens.homescreen.HomescreenActivity
+import io.intrepid.fablekotlin.screens.selectfriends.SelectFriendsActivity
+import io.intrepid.fablekotlin.settings.SharedPreferencesManager
+import io.intrepid.fablekotlin.settings.UserSettings
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import me.relex.circleindicator.CircleIndicator
 import java.io.Serializable
@@ -66,7 +66,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
                R.id.circle_button4,
                R.id.circle_button5,
                R.id.circle_button6)
-    internal var circleButtons: List<ImageButton> = ArrayList()
+    lateinit var circleButtons: List<@JvmSuppressWildcards ImageButton>
 
     private lateinit var illustrationsList: List<Int>
 
@@ -104,6 +104,16 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         val clickedColor = color.tag as HexColor
         pickedColor.setImageResource(R.drawable.ic_cover_photo)
         pickedColor.setColorFilter(Color.parseColor(clickedColor.hexColor))
+    }
+
+    @OnClick(R.id.circle_button1, R.id.circle_button2, R.id.circle_button3, R.id.circle_button4, R.id.circle_button5, R.id.circle_button6)
+    fun onClickCircleButton() {
+        val intent = Intent(this, SelectFriendsActivity::class.java)
+        intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
+        intent.putExtra(COLOR_THEME, presenter.getColorTheme())
+        intent.putExtra(ICON, (pager.currentItem + 1).toString())
+        intent.putExtra(SELECTED_FRIENDS, selectedFriends)
+        startActivityForResult(intent, PASS_FABLE_INFO)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -215,4 +225,13 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         val textView = snackbarView.findViewById<View>(snackbarTextId) as TextView
         textView.setTextColor(Color.WHITE)
     }
+
+    companion object {
+        val SELECTED_FRIENDS = "selected_friends"
+        val FABLE_TITLE = "fable_title"
+        val COLOR_THEME = "color_theme"
+        val ICON = "icon"
+        val PASS_FABLE_INFO = 1
+    }
+
 }

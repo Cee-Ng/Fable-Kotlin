@@ -31,7 +31,7 @@ class LoginActivity : BaseMvpActivity<LoginContract.Presenter>(), LoginContract.
 
     private var callbackManager: CallbackManager? = null
 
-    override fun createPresenter(config: PresenterConfiguration): LoginContract.Presenter = LoginPresenter(this, config)
+    override fun createPresenter(configuration: PresenterConfiguration): LoginContract.Presenter = LoginPresenter(this, configuration)
 
     override fun onViewCreated(savedInstanceState: Bundle?) {
         styleTitleText()

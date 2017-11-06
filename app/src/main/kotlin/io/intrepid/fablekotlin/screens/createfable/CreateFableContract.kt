@@ -27,5 +27,6 @@ interface CreateFableContract {
         fun getSelectedFriends(): List<GetUserFriendsResponse.Friend>
 
         fun setSelectedFriends(selectedFriends: List<GetUserFriendsResponse.Friend>)
+
     }
 }

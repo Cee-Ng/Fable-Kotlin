@@ -12,6 +12,5 @@ interface LoginContract {
 
     interface Presenter : BaseContract.Presenter {
         fun getAndStoreUserToken(tempToken: String)
-
     }
 }

@@ -6,7 +6,7 @@ import java.io.Serializable
 class GetUserFriendsResponse {
 
     @SerializedName("friends")
-    var friends: List<Friend>? = null
+    lateinit var friends: List<Friend>
 
     class Friend(@field:SerializedName("id")
                  var id: String,

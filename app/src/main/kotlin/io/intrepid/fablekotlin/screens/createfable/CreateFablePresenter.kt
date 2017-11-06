@@ -16,6 +16,7 @@ class CreateFablePresenter (view: CreateFableContract.View, configuration: Prese
         super.onViewCreated()
         setColorTheme(HexColor.DARKTEAL)
         selectedFriends = ArrayList<GetUserFriendsResponse.Friend>()
+       // userSettings.token = "HELLO"
     }
 
     override fun onContinueClicked(title: String) {
@@ -55,5 +56,7 @@ class CreateFablePresenter (view: CreateFableContract.View, configuration: Prese
         }
         for (i in selectedFriends.indices) {
             view?.setCircleImage(i + 1, selectedFriends[i].image)
-        }    }
+        }
+    }
+
 }
