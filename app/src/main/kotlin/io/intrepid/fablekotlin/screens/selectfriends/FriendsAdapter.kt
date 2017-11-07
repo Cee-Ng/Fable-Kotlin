@@ -23,7 +23,6 @@ class FriendsAdapter(view: SelectFriendsContract.View, private var presenter: Se
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FriendAdapterViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item_select_friend, viewGroup, false)
         return FriendAdapterViewHolder(view)
-
     }
 
     override fun onBindViewHolder(viewHolder: FriendAdapterViewHolder, position: Int) {
@@ -38,9 +37,7 @@ class FriendsAdapter(view: SelectFriendsContract.View, private var presenter: Se
         setViewData(viewHolder, friendListItem.name, friendListItem.image, letter, separator, selectedIndex)
     }
 
-    override fun getItemCount(): Int {
-        return presenter.getAllFriends().size
-    }
+    override fun getItemCount(): Int = presenter.getAllFriends().size
 
     private fun setViewData(viewHolder: FriendAdapterViewHolder, name: String, imageSrc: String,
                             letter: Char, separator: Boolean, selectedIdx: Int) {
@@ -71,7 +68,6 @@ class FriendsAdapter(view: SelectFriendsContract.View, private var presenter: Se
             viewHolder.selectedBorder.visibility = View.GONE
         }
     }
-
 
     inner class FriendAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         @BindView(R.id.letter)

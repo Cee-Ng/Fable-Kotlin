@@ -231,6 +231,4 @@ class SelectFriendsActivity : BaseMvpActivity<SelectFriendsContract.Presenter>()
             R.id.circle_button6, R.id.circle_x6 -> presenter.removeFriendFromSelected(4)
         }
     }
-
-
 }
