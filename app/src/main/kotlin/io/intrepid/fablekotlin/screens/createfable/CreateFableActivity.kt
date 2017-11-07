@@ -1,5 +1,6 @@
 package io.intrepid.fablekotlin.screens.createfable
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -23,8 +24,6 @@ import io.intrepid.fablekotlin.models.GetUserFriendsResponse
 import io.intrepid.fablekotlin.screens.createfable.FirstSentence.FirstSentenceActivity
 import io.intrepid.fablekotlin.screens.homescreen.HomescreenActivity
 import io.intrepid.fablekotlin.screens.selectfriends.SelectFriendsActivity
-import io.intrepid.fablekotlin.settings.SharedPreferencesManager
-import io.intrepid.fablekotlin.settings.UserSettings
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import me.relex.circleindicator.CircleIndicator
 import java.io.Serializable
@@ -138,6 +137,28 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         return false
     }
 
+    // Grabs stored invitees from the other screen, fills the circles with their profile pictures
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PASS_FABLE_INFO) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                    selectedFriends = data.getSerializableExtra(SELECTED_FRIENDS) as java.util.ArrayList<GetUserFriendsResponse.Friend>
+                }
+                presenter.setSelectedFriends(selectedFriends)
+                for (i in 2..5) {
+                    setCircleImage(i, null)
+                }
+                for (i in selectedFriends.indices) {
+                    setCircleImage(i + 1, selectedFriends[i].image)
+                }
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                showErrorMessage()
+            }
+        }
+    }
+
     override fun showTitleShortMessage() {
         val snackbar = Snackbar.make(findViewById(R.id.newFableLayout),
                 R.string.no_title_warning,
@@ -224,6 +245,10 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         val snackbarTextId = android.support.design.R.id.snackbar_text
         val textView = snackbarView.findViewById<View>(snackbarTextId) as TextView
         textView.setTextColor(Color.WHITE)
+    }
+
+    private fun showErrorMessage() {
+        Toast.makeText(this, R.string.failedToast, Toast.LENGTH_SHORT).show()
     }
 
     companion object {
