@@ -1,6 +1,7 @@
 package io.intrepid.fablekotlin.screens.selectfriends
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.TypedValue
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import butterknife.BindView
 import butterknife.BindViews
@@ -44,10 +46,10 @@ class SelectFriendsActivity : BaseMvpActivity<SelectFriendsContract.Presenter>()
     lateinit var inviteFablersText: TextView
 
     private lateinit var friendsAdapter: FriendsAdapter
-    private var layoutManager: LinearLayoutManager? = null
-    private var fableTitle: String? = null
-    private var colorTheme: String? = null
-    private var icon: String? = null
+    private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var fableTitle: String
+    private lateinit var colorTheme: String
+    private lateinit var icon: String
     override fun createPresenter(config: PresenterConfiguration): SelectFriendsContract.Presenter = SelectFriendsPresenter(this, config)
 
     override val layoutResourceId: Int = R.layout.activity_select_friends
@@ -73,6 +75,43 @@ class SelectFriendsActivity : BaseMvpActivity<SelectFriendsContract.Presenter>()
         val passedInSelectedFriends = receivedIntent
                 .getSerializableExtra(CreateFableActivity.SELECTED_FRIENDS) as ArrayList<GetUserFriendsResponse.Friend>
         presenter.setSelectedFriends(passedInSelectedFriends)
+    }
+
+    @OnClick(R.id.back_arrow)
+    fun onClickBackButton() {
+        goBackToCreateFableScreen()
+    }
+
+    //Go to first sentence screen if we have a valid title and two friends, go back if invalid title
+    @OnClick(R.id.check)
+    fun clickCheck() {
+        presenter.onClickedCheck(fableTitle)
+
+        val enoughFriends = presenter.getSelectedFriends().size >= 2
+        val validTitle = fableTitle.length > 0 && fableTitle.length <= 50
+
+        if (!enoughFriends) {
+            showNotEnoughFriendsMessage()
+        } else if (!validTitle) {
+            //Go back so we can enter a title
+            val returnIntent = Intent()
+            returnIntent.putExtra(CreateFableActivity.SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
+            setResult(Activity.RESULT_OK, returnIntent)
+            finish()
+        } else {
+            goToFirstSentenceScreen()
+        }
+    }
+
+    @OnClick(R.id.search_btn)
+    fun clickSearch() {
+        searchText.visibility = View.VISIBLE
+        inviteFablersText.visibility = View.GONE
+        searchText.isFocusableInTouchMode = true
+        searchText.requestFocus()
+        searchText.setText("")
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
     }
 
     override fun updateFriendsList() {
@@ -147,7 +186,7 @@ class SelectFriendsActivity : BaseMvpActivity<SelectFriendsContract.Presenter>()
         finish()    }
 
     override fun scrollToFabler(idx: Int) {
-        layoutManager?.scrollToPositionWithOffset(idx, 0)
+        layoutManager.scrollToPositionWithOffset(idx, 0)
     }
 
     private fun setSnackTextColor(snackbarView: View) {

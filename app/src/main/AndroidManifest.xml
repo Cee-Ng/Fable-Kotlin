@@ -44,6 +44,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             />
+
+        <activity
+            android:name="io.intrepid.fablekotlin.screens.createfable.FirstSentence.FirstSentenceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            />
     </application>
 
 </manifest>
