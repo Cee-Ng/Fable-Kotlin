@@ -52,14 +52,14 @@
                 android:layout_marginTop="16dp"
                 android:lineSpacingExtra="8sp"
                 android:text="@string/sample_fable_title"
-                android:textColor="#4a4a4a"
+                android:textColor="@color/gameScreenTextColor"
                 android:textSize="24sp"
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#d8d8d8"
+                android:background="@color/offWhiteBackground"
                 />
 
             <RelativeLayout
@@ -76,7 +76,7 @@
                     android:layout_marginBottom="4dp"
                     android:layout_marginLeft="@dimen/margin_first_sentence_screen"
                     android:layout_marginTop="8dp"
-                    android:backgroundTint="#f8f5ee"
+                    android:backgroundTint="@color/backgroundDarker"
                     android:hint="@string/sentence_hint"
                     android:inputType="textShortMessage|textMultiLine|textCapSentences"
                     android:lineSpacingExtra="12sp"

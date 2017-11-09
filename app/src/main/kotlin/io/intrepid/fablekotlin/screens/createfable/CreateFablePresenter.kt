@@ -9,6 +9,7 @@ import java.util.ArrayList
 class CreateFablePresenter (view: CreateFableContract.View, configuration: PresenterConfiguration)
     : BasePresenter<CreateFableContract.View>(view, configuration), CreateFableContract.Presenter {
 
+    private val MAX_LENGTH = 50
     private lateinit var colorTheme: String
     private lateinit var selectedFriends: List<GetUserFriendsResponse.Friend>
 
@@ -28,7 +29,7 @@ class CreateFablePresenter (view: CreateFableContract.View, configuration: Prese
         }
     }
 
-    private fun isTitleValid(title: String): Boolean = !title.isEmpty() && title.length <= 50
+    private fun isTitleValid(title: String): Boolean = !title.isEmpty() && title.length <= MAX_LENGTH
 
     private fun callErrorMessage(title: String) {
         if (title.isEmpty()) {
