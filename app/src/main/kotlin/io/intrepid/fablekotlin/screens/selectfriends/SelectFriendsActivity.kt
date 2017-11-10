@@ -171,11 +171,7 @@ class SelectFriendsActivity : BaseMvpActivity<SelectFriendsContract.Presenter>()
     }
 
     override fun goToFirstSentenceScreen() {
-        val intent = Intent(this, FirstSentenceActivity::class.java)
-        intent.putExtra(CreateFableActivity.Companion.FABLE_TITLE, fableTitle)
-        intent.putExtra(CreateFableActivity.Companion.COLOR_THEME, colorTheme)
-        intent.putExtra(CreateFableActivity.Companion.ICON, icon)
-        intent.putExtra(CreateFableActivity.Companion.SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
+        val intent = setIntent()
         startActivity(intent)
     }
 
@@ -230,5 +226,14 @@ class SelectFriendsActivity : BaseMvpActivity<SelectFriendsContract.Presenter>()
             R.id.circle_button5, R.id.circle_x5 -> presenter.removeFriendFromSelected(3)
             R.id.circle_button6, R.id.circle_x6 -> presenter.removeFriendFromSelected(4)
         }
+    }
+
+    private fun setIntent(): Intent{
+        val intent = Intent(this, FirstSentenceActivity::class.java)
+        intent.putExtra(CreateFableActivity.Companion.FABLE_TITLE, fableTitle)
+        intent.putExtra(CreateFableActivity.Companion.COLOR_THEME, colorTheme)
+        intent.putExtra(CreateFableActivity.Companion.ICON, icon)
+        intent.putExtra(CreateFableActivity.Companion.SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
+        return intent
     }
 }

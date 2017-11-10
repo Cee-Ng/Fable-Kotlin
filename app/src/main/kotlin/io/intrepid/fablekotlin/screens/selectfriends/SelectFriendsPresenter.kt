@@ -65,17 +65,11 @@ class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: Pr
         this.allFriends = allFriends
     }
 
-    override fun getAllFriends(): List<GetUserFriendsResponse.Friend> {
-        return allFriends
-    }
+    override fun getAllFriends(): List<GetUserFriendsResponse.Friend> = allFriends
 
-    override fun getSelectedFriends(): List<GetUserFriendsResponse.Friend> {
-        return selectedFriends
-    }
+    override fun getSelectedFriends(): List<GetUserFriendsResponse.Friend> = selectedFriends
 
-    override fun getLetterMap(): Map<Int, Char> {
-        return letterMap
-    }
+    override fun getLetterMap(): Map<Int, Char> = letterMap
 
     override fun setSelectedFriends(selectedFriends: List<GetUserFriendsResponse.Friend>) {
         this.selectedFriends = selectedFriends as MutableList<GetUserFriendsResponse.Friend>
@@ -115,7 +109,7 @@ class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: Pr
         }
         for (i in allFriends.indices) {
             val friend = allFriends[i]
-            if (text.toLowerCase().compareTo(friend.name.toLowerCase()) < 0) {
+            if (text.toLowerCase() < friend.name.toLowerCase()) {
                 view?.scrollToFabler(i)
                 return
             }

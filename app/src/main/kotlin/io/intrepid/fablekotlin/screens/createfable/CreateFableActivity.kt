@@ -21,9 +21,9 @@ import io.intrepid.fablekotlin.R
 import io.intrepid.fablekotlin.base.BaseMvpActivity
 import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.models.GetUserFriendsResponse
-import io.intrepid.fablekotlin.screens.createfable.FirstSentence.FirstSentenceActivity
 import io.intrepid.fablekotlin.screens.homescreen.HomescreenActivity
 import io.intrepid.fablekotlin.screens.selectfriends.SelectFriendsActivity
+import io.intrepid.fablekotlin.settings.SharedPreferencesManager
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import me.relex.circleindicator.CircleIndicator
 import java.io.Serializable
@@ -94,6 +94,8 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
 
         setColorTags()
         setupToolbar()
+
+        setCircleImage(0, SharedPreferencesManager.getInstance(this).userImage)
         setUpIllustrationPager()
     }
 
@@ -107,11 +109,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
 
     @OnClick(R.id.circle_button1, R.id.circle_button2, R.id.circle_button3, R.id.circle_button4, R.id.circle_button5, R.id.circle_button6)
     fun onClickCircleButton() {
-        val intent = Intent(this, SelectFriendsActivity::class.java)
-        intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
-        intent.putExtra(COLOR_THEME, presenter.getColorTheme())
-        intent.putExtra(ICON, (pager.currentItem + 1).toString())
-        intent.putExtra(SELECTED_FRIENDS, selectedFriends)
+        val intent = setIntent()
         startActivityForResult(intent, PASS_FABLE_INFO)
     }
 
@@ -183,11 +181,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         snackbar.show()    }
 
     override fun goToFirstSentenceScreen() {
-        val intent = Intent(this, FirstSentenceActivity::class.java)
-        intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
-        intent.putExtra(COLOR_THEME, presenter.getColorTheme())
-        intent.putExtra(ICON, (pager.currentItem + 1).toString())
-        intent.putExtra(SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
+        val intent = setIntent()
         startActivity(intent)
     }
 
@@ -206,7 +200,6 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
             }
             circleButton.setImageResource(R.drawable.plus)
         } else {
-            // Add the profile photo and the material design ripple
             val typedValue = TypedValue()
             this.theme.resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, typedValue, true)
             circleButton.setBackgroundResource(typedValue.resourceId)
@@ -249,6 +242,15 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
 
     private fun showErrorMessage() {
         Toast.makeText(this, R.string.failedToast, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setIntent() : Intent{
+        val intent = Intent(this, SelectFriendsActivity::class.java)
+        intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
+        intent.putExtra(COLOR_THEME, presenter.getColorTheme())
+        intent.putExtra(ICON, (pager.currentItem + 1).toString())
+        intent.putExtra(SELECTED_FRIENDS, selectedFriends)
+        return intent
     }
 
     companion object {
