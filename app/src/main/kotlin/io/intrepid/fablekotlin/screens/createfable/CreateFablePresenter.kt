@@ -1,14 +1,18 @@
 package io.intrepid.fablekotlin.screens.createfable
 
+import android.app.Activity
+import android.content.Intent
 import io.intrepid.fablekotlin.HexColor
 import io.intrepid.fablekotlin.base.BasePresenter
 import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.models.GetUserFriendsResponse
+import io.intrepid.fablekotlin.screens.createfable.CreateFableActivity.Companion.SELECTED_FRIENDS
 import java.util.ArrayList
 
-class CreateFablePresenter (view: CreateFableContract.View, configuration: PresenterConfiguration)
+class CreateFablePresenter(view: CreateFableContract.View, configuration: PresenterConfiguration)
     : BasePresenter<CreateFableContract.View>(view, configuration), CreateFableContract.Presenter {
 
+    private val PASS_FABLE_INFO = 1
     private val MAX_LENGTH = 50
     private lateinit var colorTheme: String
     private lateinit var selectedFriends: List<GetUserFriendsResponse.Friend>
@@ -16,7 +20,7 @@ class CreateFablePresenter (view: CreateFableContract.View, configuration: Prese
     override fun onViewCreated() {
         super.onViewCreated()
         setColorTheme(HexColor.DARKTEAL)
-        selectedFriends = ArrayList<GetUserFriendsResponse.Friend>()
+        selectedFriends = ArrayList()
     }
 
     override fun onContinueClicked(title: String) {
@@ -56,6 +60,25 @@ class CreateFablePresenter (view: CreateFableContract.View, configuration: Prese
         }
         for (i in selectedFriends.indices) {
             view?.setCircleImage(i + 1, selectedFriends[i].image)
+        }
+    }
+
+    override fun returnFromPage(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == PASS_FABLE_INFO) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                    selectedFriends = data.getSerializableExtra(SELECTED_FRIENDS) as ArrayList<GetUserFriendsResponse.Friend>
+                }
+                for (i in 2..5) {
+                    view?.setCircleImage(i, null)
+                }
+                for (i in selectedFriends.indices) {
+                    view?.setCircleImage(i + 1, selectedFriends[i].image)
+                }
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                view?.showErrorMessage()
+            }
         }
     }
 

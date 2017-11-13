@@ -70,7 +70,7 @@
 
                 <EditText
                     android:id="@+id/text_input"
-                    fontPath="fonts/Avenir-Roman.ttf"
+                    fontPath="@string/Avenir_Roman_font"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -114,7 +114,7 @@
 
         <TextView
             android:id="@+id/char_count"
-            fontPath="fonts/Avenir-Roman.ttf"
+            fontPath="@string/Avenir_Roman_font"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

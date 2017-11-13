@@ -21,6 +21,7 @@ import io.intrepid.fablekotlin.R
 import io.intrepid.fablekotlin.base.BaseMvpActivity
 import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.models.GetUserFriendsResponse
+import io.intrepid.fablekotlin.screens.createfable.FirstSentence.FirstSentenceActivity
 import io.intrepid.fablekotlin.screens.homescreen.HomescreenActivity
 import io.intrepid.fablekotlin.screens.selectfriends.SelectFriendsActivity
 import io.intrepid.fablekotlin.settings.SharedPreferencesManager
@@ -109,7 +110,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
 
     @OnClick(R.id.circle_button1, R.id.circle_button2, R.id.circle_button3, R.id.circle_button4, R.id.circle_button5, R.id.circle_button6)
     fun onClickCircleButton() {
-        val intent = setIntent()
+        val intent = setFriendIntent()
         startActivityForResult(intent, PASS_FABLE_INFO)
     }
 
@@ -138,23 +139,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
     // Grabs stored invitees from the other screen, fills the circles with their profile pictures
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PASS_FABLE_INFO) {
-            if (resultCode == Activity.RESULT_OK) {
-                if (data != null) {
-                    selectedFriends = data.getSerializableExtra(SELECTED_FRIENDS) as java.util.ArrayList<GetUserFriendsResponse.Friend>
-                }
-                presenter.setSelectedFriends(selectedFriends)
-                for (i in 2..5) {
-                    setCircleImage(i, null)
-                }
-                for (i in selectedFriends.indices) {
-                    setCircleImage(i + 1, selectedFriends[i].image)
-                }
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                showErrorMessage()
-            }
-        }
+        presenter.returnFromPage(requestCode, resultCode, data)
     }
 
     override fun showTitleShortMessage() {
@@ -181,7 +166,7 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         snackbar.show()    }
 
     override fun goToFirstSentenceScreen() {
-        val intent = setIntent()
+        val intent = setFirstSentenceIntent()
         startActivity(intent)
     }
 
@@ -240,16 +225,25 @@ class CreateFableActivity : BaseMvpActivity<CreateFableContract.Presenter>(), Cr
         textView.setTextColor(Color.WHITE)
     }
 
-    private fun showErrorMessage() {
+    override fun showErrorMessage() {
         Toast.makeText(this, R.string.failedToast, Toast.LENGTH_SHORT).show()
     }
 
-    private fun setIntent() : Intent{
+    private fun setFriendIntent() : Intent{
         val intent = Intent(this, SelectFriendsActivity::class.java)
         intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
         intent.putExtra(COLOR_THEME, presenter.getColorTheme())
         intent.putExtra(ICON, (pager.currentItem + 1).toString())
-        intent.putExtra(SELECTED_FRIENDS, selectedFriends)
+        intent.putExtra(SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
+        return intent
+    }
+
+    private fun setFirstSentenceIntent() : Intent{
+        val intent = Intent(this, FirstSentenceActivity::class.java)
+        intent.putExtra(FABLE_TITLE, enteredFableTitle.text.toString())
+        intent.putExtra(COLOR_THEME, presenter.getColorTheme())
+        intent.putExtra(ICON, (pager.currentItem + 1).toString())
+        intent.putExtra(SELECTED_FRIENDS, presenter.getSelectedFriends() as Serializable)
         return intent
     }
 

@@ -30,7 +30,7 @@ class FriendsAdapter(view: SelectFriendsContract.View, private var presenter: Se
 
         var letter = '0'
         if (presenter.getLetterMap().containsKey(position)) {
-            letter = presenter.getLetterMap().get(position)!!
+            letter = presenter.getLetterMap()[position]!!
         }
         val separator = presenter.getLetterMap().containsKey(position + 1)
         val selectedIndex = presenter.indexInSelected(friendListItem)

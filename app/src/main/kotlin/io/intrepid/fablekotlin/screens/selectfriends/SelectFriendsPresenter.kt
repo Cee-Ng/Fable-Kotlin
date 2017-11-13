@@ -3,7 +3,9 @@ package io.intrepid.fablekotlin.screens.selectfriends
 import io.intrepid.fablekotlin.base.BasePresenter
 import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.models.GetUserFriendsResponse
+import timber.log.Timber
 import java.util.*
+import kotlin.collections.ArrayList
 
 class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: PresenterConfiguration)
     : BasePresenter<SelectFriendsContract.View>(view, configuration), SelectFriendsContract.Presenter{
@@ -49,6 +51,7 @@ class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: Pr
         }    }
 
     override fun onClickedCheck(fableTitle: String) {
+        Timber.d("CHECK FRIEND ${selectedFriends.size}")
         val enoughFriends = selectedFriends.size >= 2
         val validTitle = fableTitle.length in 1..50
 
@@ -71,12 +74,14 @@ class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: Pr
 
     override fun getLetterMap(): Map<Int, Char> = letterMap
 
-    override fun setSelectedFriends(selectedFriends: List<GetUserFriendsResponse.Friend>) {
-        this.selectedFriends = selectedFriends as MutableList<GetUserFriendsResponse.Friend>
+    override fun setSelectedFriends(enteredSelectedFriends: List<GetUserFriendsResponse.Friend>) {
+        selectedFriends = enteredSelectedFriends as MutableList<GetUserFriendsResponse.Friend>
         for (i in selectedFriends.indices) {
             val friend = selectedFriends[i]
             view?.setCircleImage(i + 1, friend.image)
         }
+        Timber.d(" SET FREIND ${selectedFriends.size}")
+
     }
 
     override fun removeFriendFromSelected(idx: Int) {
@@ -91,7 +96,9 @@ class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: Pr
                 view?.setCircleImage(i + 1, null)
             }
         }
-        view?.updateFriendsList()    }
+        view?.updateFriendsList()
+        Timber.d("REMOVE FRIEND ${selectedFriends.size}")
+    }
 
     override fun indexInSelected(selectedFriend: GetUserFriendsResponse.Friend): Int {
         for (i in selectedFriends.indices) {

@@ -1,5 +1,6 @@
 package io.intrepid.fablekotlin.screens.createfable
 
+import android.content.Intent
 import io.intrepid.fablekotlin.HexColor
 import io.intrepid.fablekotlin.base.BaseContract
 import io.intrepid.fablekotlin.models.GetUserFriendsResponse
@@ -15,6 +16,8 @@ interface CreateFableContract {
         fun goToFirstSentenceScreen()
 
         fun setCircleImage(idx: Int, imageSrc: String?)
+
+        fun showErrorMessage()
     }
 
     interface Presenter : BaseContract.Presenter {
@@ -28,5 +31,6 @@ interface CreateFableContract {
 
         fun setSelectedFriends(selectedFriends: List<GetUserFriendsResponse.Friend>)
 
+        fun returnFromPage(requestCode: Int, resultCode: Int, data: Intent?)
     }
 }
