@@ -86,6 +86,7 @@
     <string name="completed_the_fable">You completed the fable!</string>
     <string name="create_fable_select_friend_descriptor">Click to add friends</string>
     <string name="the_selected_color_and_illustraition">The Selected Color and Illustraition</string>
+    <string name="Avenir_Roman_font">fonts/Avenir-Roman.ttf</string>
 
 
 </resources>

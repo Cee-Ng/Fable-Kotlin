@@ -4,7 +4,7 @@ interface UserSettings {
 
     var lastIp: String
 
-    var token: String?
+    var token: String
 
     var userId: String?
 

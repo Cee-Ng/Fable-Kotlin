@@ -8,7 +8,6 @@ import io.intrepid.fablekotlin.base.BaseMvpActivity
 import io.intrepid.fablekotlin.base.PresenterConfiguration
 import io.intrepid.fablekotlin.screens.createfable.CreateFableActivity
 import io.intrepid.fablekotlin.screens.login.LoginActivity
-import io.intrepid.fablekotlin.settings.SharedPreferencesManager
 
 class HomescreenActivity : BaseMvpActivity<HomescreenContract.Presenter>(), HomescreenContract.View {
 
@@ -20,14 +19,12 @@ class HomescreenActivity : BaseMvpActivity<HomescreenContract.Presenter>(), Home
     override fun onViewCreated(savedInstanceState: Bundle?) {
         super.onViewCreated(savedInstanceState)
 
-        if ((!getLoggedInStatus()) || SharedPreferencesManager.getInstance(this).token == null) run {
+        if (!getLoggedInStatus()) {
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
-    private fun getLoggedInStatus(): Boolean {
-        return LoginActivity.isLoggedInToFacebook
-    }
+    private fun getLoggedInStatus(): Boolean = LoginActivity.isLoggedInToFacebook
 
     @OnClick(R.id.go_to_new_fable_btn)
     internal fun onFabClick() {

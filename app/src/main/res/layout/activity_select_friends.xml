@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/selectFriendsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingPrefix"
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            >
+
+            <ImageButton
+                android:id="@+id/back_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/arrow_left_black"
+                />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                >
+
+                <EditText
+                    android:id="@+id/search_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="72dp"
+                    android:background="@null"
+                    android:hint="Search"
+                    android:inputType="text|textCapWords"
+                    android:maxLines="1"
+                    android:textColor="@color/blueCursorColor"
+                    android:textCursorDrawable="@null"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:id="@+id/invite_fablers_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="72dp"
+                    android:text="Invite Fablers"
+                    android:textSize="20sp"
+                    />
+
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/search_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="54dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/search"
+                />
+
+            <ImageButton
+                android:id="@+id/check"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/check"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            >
+
+            <!--TODO: Make the circular buttons more interactive w/ material design (ripple or whatever)-->
+
+            <ImageButton
+                android:id="@+id/circle_button1"
+                style="@style/friendCircleDark"
+                android:layout_marginLeft="16dp"
+                />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageButton
+                    android:id="@+id/circle_button2"
+                    style="@style/friendCircleDark"
+                    android:layout_marginLeft="8dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/circle_x2"
+                    style="@style/friendX"
+                    android:layout_marginLeft="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/close"
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageButton
+                    android:id="@+id/circle_button3"
+                    style="@style/friendCircleDark"
+                    android:layout_marginLeft="8dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/circle_x3"
+                    style="@style/friendX"
+                    android:layout_marginLeft="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/close"
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageButton
+                    android:id="@+id/circle_button4"
+                    style="@style/friendCircleLight"
+                    android:layout_marginLeft="8dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/circle_x4"
+                    style="@style/friendX"
+                    android:layout_marginLeft="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/close"
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageButton
+                    android:id="@+id/circle_button5"
+                    style="@style/friendCircleLight"
+                    android:layout_marginLeft="8dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/circle_x5"
+                    style="@style/friendX"
+                    android:layout_marginLeft="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/close"
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageButton
+                    android:id="@+id/circle_button6"
+                    style="@style/friendCircleLight"
+                    android:layout_marginLeft="8dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/circle_x6"
+                    style="@style/friendX"
+                    android:layout_marginLeft="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/close"
+                    />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="4dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/gradient"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/friends_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="0.5"
+            />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_spinner"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/no_friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_friends"
+        android:visibility="gone"
+        />
+
+</FrameLayout>

@@ -23,7 +23,7 @@ android {
 
     defaultConfig {
         applicationId "io.intrepid.fablekotlin"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -128,6 +128,8 @@ dependencies {
     kapt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
     compile 'com.jakewharton.timber:timber:4.5.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'jp.wasabeef:picasso-transformations:2.1.2'
 
     // Other
     compile "io.intrepid.commonutils:commonutils:0.2.2"

@@ -23,9 +23,9 @@ class SharedPreferencesManager private constructor(context: Context) : UserSetti
         get() = preferences.getString(LAST_IP, "")
         set(value) = preferences.edit().putString(LAST_IP, value).apply()
 
-    override var token: String?
+    override var token: String
         get() = preferences.getString(TOKEN_KEY, "")
-        set(value) = preferences.edit().putString(LAST_IP, value).apply()
+        set(value) = preferences.edit().putString(TOKEN_KEY, value).apply()
 
     override var userId: String?
         get() = preferences.getString(USER_ID_KEY, "")
