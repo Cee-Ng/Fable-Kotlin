@@ -14,6 +14,10 @@ class SelectFriendsPresenter(view: SelectFriendsContract.View, configuration: Pr
     private lateinit var selectedFriends: MutableList<GetUserFriendsResponse.Friend>
     private val letterMap = HashMap<Int, Char>()
 
+    /*TODO: There is a problem right now when coming back to this page after previously picking friends
+    it appears even though selected friends get set to the previous picked friends at some point it seems to "forget" them and act like the list is empty
+    I've spent too much time on this for now.... so moving on. */
+
     override fun onViewCreated() {
         super.onViewCreated()
         allFriends = ArrayList()
